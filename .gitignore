@@ -1,0 +1,4 @@
+dist/
+publish/
+index.backup-*.html
+.DS_Store

@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Siren Glam | Press-On Nails Nairobi</title>
+<meta name="description" content="Hand-finished press-on nails in Nairobi. Eight signature sets, custom-sized to your hands, ordered on WhatsApp and delivered to you.">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Siren Glam">
+<meta property="og:title" content="Siren Glam | Effortless beauty, every day">
+<meta property="og:description" content="Hand-finished press-on nails in Nairobi. Eight signature sets, custom-sized to your hands, ordered on WhatsApp and delivered to you.">
+<meta property="og:url" content="https://sirenglam.netlify.app/">
+<meta property="og:image" content="https://sirenglam.netlify.app/preview.jpg">
+<meta property="og:image:secure_url" content="https://sirenglam.netlify.app/preview.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Siren Glam press-on nails">
+<meta property="og:locale" content="en_KE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Siren Glam | Effortless beauty, every day">
+<meta name="twitter:description" content="Hand-finished press-on nails in Nairobi. Eight signature sets, custom-sized to your hands, ordered on WhatsApp and delivered to you.">
+<meta name="twitter:image" content="https://sirenglam.netlify.app/preview.jpg">
+
+<meta name="theme-color" content="#E89EB8">
+<link rel="canonical" href="https://sirenglam.netlify.app/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,ital@9..144,300..700,0,1&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap">
+<link rel="icon" href="images/favicon.jpg">
+<link rel="apple-touch-icon" href="images/favicon.jpg">
+</head>
+<body>
+<style>
+  :root{
+    /* Brand palette: Soft Pink #E89EB8 background, Dark Burgundy #5C0120 text */
+    --ground:#E89EB8;
+    --ground-raised:#F3C4D4;
+    --pink:#5C0120;
+    --pink-soft:#EFB3C8;
+    --wine:#5C0120;
+    --wine-deep:#45001A;
+    --wine-ink:#5C0120;
+    --gold:#BC935A;
+    --gold-line: rgba(92,1,32,0.25);
+    --line: rgba(92,1,32,0.18);
+    --shadow: 0 20px 44px -28px rgba(69,0,26,0.45);
+    --focus: #5C0120;
+    color-scheme: light;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ground);
+    color:var(--wine-ink);
+    font-family:'Manrope', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  h1,h2,h3{
+    font-family:'Fraunces', Georgia, 'Times New Roman', serif;
+    font-weight:600;
+    line-height:1.05;
+    margin:0;
+    text-wrap:balance;
+    color:var(--wine-ink);
+  }
+  p{margin:0; line-height:1.6;}
+  :focus-visible{outline:2px solid var(--focus); outline-offset:3px; border-radius:4px;}
+
+  .wrap{max-width:1180px; margin:0 auto; padding-inline:clamp(20px,5vw,56px);}
+  /* keep anchor targets clear of the sticky header */
+  #shop, #sizing, #how, #contact, #included, #apply, #delivery, #reviews, #faq{scroll-margin-top:86px;}
+  .eyebrow{
+    font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase;
+    color:var(--wine); opacity:0.95;
+    display:inline-flex; align-items:center;
+  }
+  .eyebrow::before{content:''; width:16px; height:1px; background:var(--wine); display:inline-block; opacity:0.85; margin-right:8px;}
+
+  /* ---------- NAV ---------- */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:color-mix(in srgb, var(--ground) 88%, transparent);
+    backdrop-filter:blur(10px) saturate(1.1);
+    border-bottom:1px solid var(--line);
+    transition:box-shadow 0.3s ease;
+  }
+  header.site.scrolled{box-shadow:0 10px 26px -20px rgba(69,0,26,0.4);}
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-block:12px;
+  }
+  .brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
+  .brand img{width:38px; height:38px; border-radius:50%; object-fit:cover; box-shadow:0 0 0 2px var(--ground-raised), 0 0 0 3px var(--line);}
+  .brand-word{font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem; letter-spacing:0.02em; color:var(--wine-ink);}
+  .nav-links{display:flex; align-items:center; gap:24px;}
+  .nav-links a{
+    font-size:0.85rem; font-weight:600; text-decoration:none; color:var(--wine-ink);
+    opacity:0.9;
+  }
+  .nav-links a:hover{opacity:1; color:var(--wine-deep);}
+  .nav-links a.btn-wine, .nav-links a.btn-wine:hover{color:var(--ground-raised); opacity:1;}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    font-family:'Manrope',sans-serif; font-weight:700; font-size:0.86rem;
+    padding:0.75em 1.4em; border-radius:999px; text-decoration:none;
+    border:1px solid transparent; cursor:pointer; white-space:nowrap;
+    transition:transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-wine{background:var(--wine); color:var(--ground-raised);}
+  .btn-wine:hover{box-shadow:var(--shadow), 0 0 0 1px var(--gold-line); transform:translateY(-1px);}
+  .btn-ghost{background:transparent; border-color:var(--line); color:var(--wine-ink);}
+  .btn-ghost:hover{background:var(--pink-soft);}
+  .btn-sm{padding:0.6em 1.1em; font-size:0.78rem;}
+  .btn svg{width:15px; height:15px; flex:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{padding-block:clamp(40px,7vw,84px) clamp(32px,6vw,64px); position:relative;}
+  .hero-grid{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:clamp(28px,5vw,64px);
+    align-items:center;
+  }
+  .hero h1{font-size:clamp(2.4rem,5.4vw,4.1rem); font-style:italic; font-weight:500;}
+  .hero h1 em{font-style:normal; font-weight:600; display:block;}
+  .hero-sub{
+    margin-top:18px; max-width:46ch; font-size:1.05rem; color:var(--wine-ink); opacity:0.9;
+  }
+  .hero-cta{display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; align-items:center;}
+  .hero-meta{display:flex; gap:22px; margin-top:34px; flex-wrap:wrap;}
+  .hero-meta div{font-size:0.78rem; opacity:0.9;}
+  .hero-meta strong{display:block; font-family:'Fraunces',serif; font-size:1.5rem; font-weight:600; opacity:1; color:var(--wine-ink);}
+
+  .hero-art{position:relative; aspect-ratio:1/1; width:100%; max-width:640px; margin-inline:auto;}
+  .hero-art .ph{
+    position:absolute; border-radius:22px; overflow:hidden; box-shadow:var(--shadow);
+    border:6px solid var(--ground-raised);
+  }
+  .hero-art .ph img{width:100%; height:100%; object-fit:cover;}
+  .hero-art .ph-a{width:64%; aspect-ratio:4/5; top:0; right:0;}
+  .hero-art .ph-b{width:52%; aspect-ratio:1/1; bottom:0; left:0; z-index:2;}
+  .hero-art .seal{
+    position:absolute; left:6%; top:38%; width:34%; aspect-ratio:1/1; border-radius:50%;
+    background:var(--pink-soft); display:grid; place-items:center; z-index:3;
+    box-shadow:var(--shadow); transform:rotate(-8deg);
+    border:1.5px solid var(--gold-line);
+  }
+  .seal img{width:78%; border-radius:50%;}
+  .sparkle{position:absolute; color:var(--gold); animation:drift 5s ease-in-out infinite;}
+  .sparkle:nth-of-type(2){animation-duration:6.5s; animation-delay:0.6s;}
+  .sparkle:nth-of-type(3){animation-duration:4.2s; animation-delay:1.1s;}
+  @keyframes drift{
+    0%,100%{transform:translateY(0) rotate(0deg);}
+    50%{transform:translateY(-10px) rotate(12deg);}
+  }
+  .ph img{transition:opacity 0.45s ease; animation:breathe 8s ease-in-out infinite;}
+  .ph-b img{animation-delay:1.2s;}
+  @keyframes breathe{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.06);}
+  }
+
+  /* ---------- SCROLL PROGRESS ---------- */
+  .scroll-progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background:linear-gradient(90deg, var(--gold), var(--wine));
+    z-index:70; transition:width 0.1s linear;
+  }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee{overflow:hidden; background:var(--pink-soft); border-block:1px solid var(--line); padding-block:12px;}
+  .marquee-track{display:flex; gap:40px; width:max-content; animation:marquee 22s linear infinite;}
+  .marquee-track span{
+    font-family:'Fraunces',serif; font-style:italic; font-size:0.92rem; color:var(--wine);
+    white-space:nowrap; opacity:0.9;
+  }
+  .marquee:hover .marquee-track{animation-play-state:paused;}
+  @keyframes marquee{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+
+  /* ---------- SHOP ---------- */
+  .section{padding-block:clamp(48px,8vw,96px);}
+  .section-head{display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:clamp(28px,4vw,44px); flex-wrap:wrap;}
+  .section-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem); font-style:italic;}
+  .section-head p{max-width:42ch; opacity:0.9; font-size:0.95rem;}
+
+  .grid-shop{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(268px,1fr)); gap:clamp(18px,2.4vw,28px);
+  }
+  .card{
+    background:var(--ground-raised); border:1px solid var(--line); border-radius:20px;
+    overflow:hidden; display:flex; flex-direction:column;
+    transition:transform 0.15s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .card:hover{transform:translateY(-5px); box-shadow:var(--shadow); border-color:var(--gold-line);}
+  .card-media{position:relative; aspect-ratio:4/5; overflow:hidden; background:var(--pink-soft); cursor:pointer;}
+  .card-media img{width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease;}
+  .card:hover .card-media img{transform:scale(1.06);}
+  .tag{
+    position:absolute; top:12px; left:12px; background:var(--ground-raised);
+    color:var(--wine); font-size:0.66rem; font-weight:800; letter-spacing:0.08em; text-transform:uppercase;
+    padding:5px 10px; border-radius:999px; box-shadow:0 4px 10px -4px rgba(69,0,26,0.35);
+    display:inline-flex; align-items:center; gap:5px;
+  }
+  .tag::before{content:''; width:5px; height:5px; border-radius:50%; background:var(--gold); display:inline-block; flex:none;}
+  .card-body{padding:18px 18px 20px; display:flex; flex-direction:column; gap:4px; flex:1;}
+  .card-body h3{font-size:1.24rem; font-weight:600; font-style:italic;}
+  .spec{font-size:0.85rem; opacity:0.9; line-height:1.45; min-height:2.4em;}
+  .spec i{font-style:normal; opacity:0.45; padding-inline:5px;}
+  .card-price{
+    font-family:'Fraunces',serif; font-weight:600; font-size:1.32rem;
+    margin-top:auto; padding-top:10px; display:flex; align-items:baseline; gap:7px;
+  }
+  .card-price .unit{
+    font-family:'Manrope',sans-serif; font-weight:600; font-size:0.62rem;
+    letter-spacing:0.08em; text-transform:uppercase; opacity:0.9;
+  }
+  .count{font-variant-numeric:tabular-nums;}
+  .btn-block{width:100%; margin-top:14px;}
+  .view-details{
+    background:none; border:none; padding:0; margin-top:10px; font-size:0.78rem; font-weight:700;
+    color:var(--wine); text-decoration:underline; cursor:pointer; text-align:left; font-family:inherit;
+  }
+
+  /* ---------- INCLUDED ---------- */
+  .included-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px;}
+  .included-item{background:var(--ground-raised); border:1px solid var(--line); border-radius:18px; padding:20px; display:flex; gap:14px; align-items:flex-start;}
+  .included-item .ico{
+    flex:none; width:32px; height:32px; border-radius:50%; background:var(--pink-soft); color:var(--wine);
+    display:grid; place-items:center; font-size:0.9rem; border:1.5px solid var(--gold-line);
+  }
+  .included-item p{font-size:0.92rem;}
+
+  /* ---------- SIZING ---------- */
+  .sizing{
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:clamp(24px,4vw,48px);
+    align-items:center; background:var(--ground-raised);
+    border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:28px;
+    padding:clamp(28px,4vw,48px); box-shadow:var(--shadow);
+  }
+  .sizing h2{font-size:clamp(1.6rem,3vw,2.15rem); font-style:italic; margin-top:6px;}
+  .sizing p{margin-top:14px; opacity:0.9; max-width:44ch; font-size:1rem;}
+  .sizing .btn{margin-top:24px;}
+  .sizing-photo img{border-radius:20px; aspect-ratio:4/5; object-fit:cover; width:100%;}
+
+  /* ---------- HOW IT WORKS / STEPS ---------- */
+  .how{background:var(--pink-soft); border-radius:28px; border-top:3px solid var(--gold);}
+  .how-inner{padding:clamp(32px,5vw,56px);}
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,3vw,32px); margin-top:32px;}
+  .steps-5{grid-template-columns:repeat(5,1fr);}
+  .step{position:relative; padding-top:8px;}
+  .step .n{
+    font-family:'Fraunces',serif; font-size:2.6rem; font-weight:600; color:var(--wine); opacity:0.35;
+    -webkit-text-stroke:1.5px var(--wine); color:transparent; line-height:1;
+  }
+  .step h3{margin-top:10px; font-size:1.15rem; font-style:italic;}
+  .step p{margin-top:8px; font-size:0.9rem; opacity:0.9; max-width:32ch;}
+
+  /* ---------- WHY ---------- */
+  .why-grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,5vw,56px); align-items:center;}
+  .why-copy p{font-size:1.02rem; opacity:0.9; margin-top:14px; max-width:48ch;}
+  .why-list{list-style:none; margin:26px 0 0; padding:0; display:flex; flex-direction:column; gap:16px;}
+  .why-list li{display:flex; gap:14px; align-items:flex-start; font-size:0.94rem;}
+  .why-list .ico{
+    flex:none; width:30px; height:30px; border-radius:50%; background:var(--wine); color:var(--ground-raised);
+    display:grid; place-items:center; font-size:0.85rem; margin-top:1px;
+    border:1.5px solid var(--gold-line);
+  }
+  .why-strip{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .why-strip img{border-radius:18px; aspect-ratio:1/1; object-fit:cover; box-shadow:var(--shadow);}
+  .why-strip .tall{aspect-ratio:1/1.35; grid-row:span 2;}
+
+  /* ---------- DELIVERY ---------- */
+  .delivery-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; margin-top:8px;}
+  .delivery-item{background:var(--ground-raised); border:1px solid var(--line); border-radius:20px; padding:22px;}
+  .delivery-item h3{font-size:1.05rem; font-style:italic; margin-bottom:8px;}
+  .delivery-item p{font-size:0.9rem; opacity:0.9;}
+
+  /* ---------- REVIEWS ---------- */
+  .reviews-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px;}
+  .review-card{background:var(--ground-raised); border:1px solid var(--line); border-radius:20px; padding:22px; position:relative;}
+  .review-card .stars{color:var(--wine); font-size:0.9rem; letter-spacing:2px;}
+  .review-card blockquote{margin:12px 0 14px; font-style:italic; font-size:0.96rem; opacity:0.9; line-height:1.55;}
+  .review-card cite{font-style:normal; font-size:0.82rem; font-weight:700; opacity:0.9; display:block;}
+  .review-card .sample-tag{
+    position:absolute; top:14px; right:14px; font-size:0.6rem; font-weight:800; letter-spacing:0.08em;
+    text-transform:uppercase; background:var(--pink-soft); color:var(--wine); padding:4px 9px; border-radius:999px;
+  }
+  .review-card .review-photo{margin:-22px -22px 16px; aspect-ratio:4/5; overflow:hidden; border-radius:20px 20px 0 0; background:var(--pink-soft);}
+  .review-card .review-photo img{width:100%; height:100%; object-fit:cover;}
+  .reviews-cta{margin-top:26px; text-align:center; font-size:0.88rem; opacity:0.9;}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{max-width:760px; margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--gold-line); padding-block:16px;}
+  .faq-item summary{cursor:pointer; font-weight:700; font-size:1rem; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:12px;}
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:"+"; font-size:1.3rem; color:var(--wine); transition:transform 0.2s ease; flex:none;}
+  .faq-item[open] summary::after{transform:rotate(45deg);}
+  .faq-item p{margin-top:10px; font-size:0.92rem; opacity:0.9; max-width:60ch;}
+  .faq-head{text-align:center; margin-bottom:clamp(28px,4vw,44px);}
+  .faq-head p.eyebrow{display:block;}
+
+  /* ---------- CTA BAND ---------- */
+  .cta-band{
+    background:var(--wine); color:var(--ground-raised); border-radius:28px;
+    padding:clamp(36px,6vw,60px); display:flex; align-items:center; justify-content:space-between;
+    gap:24px; flex-wrap:wrap; border-top:3px solid var(--gold);
+  }
+  .cta-band h2{color:var(--ground-raised); font-size:clamp(1.6rem,3.2vw,2.3rem); font-style:italic; max-width:16ch;}
+  .cta-band .btn-wine{background:var(--ground-raised); color:var(--wine);}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--gold-line); padding-block:40px; margin-top:20px;}
+  .foot-grid{display:grid; grid-template-columns:1.1fr 0.9fr 0.9fr 0.9fr; gap:32px;}
+  .foot-brand{display:flex; align-items:center; gap:10px; margin-bottom:12px;}
+  .foot-brand img{width:32px; height:32px; border-radius:50%;}
+  footer h4{font-size:0.72rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; opacity:0.9; margin-bottom:14px;}
+  footer p, footer a{font-size:0.88rem; opacity:0.9; text-decoration:none;}
+  footer .col a{display:block; margin-bottom:8px;}
+  .foot-bottom{margin-top:32px; padding-top:20px; border-top:1px solid var(--line); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:0.78rem; opacity:0.9;}
+
+  /* ---------- WHATSAPP FAB ---------- */
+  .fab{
+    position:fixed; right:20px; bottom:20px; z-index:60;
+    width:56px; height:56px; border-radius:50%; background:#25D366; color:#fff;
+    display:grid; place-items:center; box-shadow:0 12px 28px -10px rgba(0,0,0,0.45);
+    text-decoration:none;
+  }
+  .fab svg{width:28px; height:28px; position:relative; z-index:1;}
+  .fab::before{
+    content:''; position:absolute; inset:-6px; border-radius:50%; border:2px solid #25D366;
+    opacity:0; animation:fabPulse 2.8s ease-out infinite;
+  }
+  @keyframes fabPulse{
+    0%{transform:scale(0.9); opacity:0.6;}
+    70%{transform:scale(1.5); opacity:0;}
+    100%{opacity:0;}
+  }
+
+  /* ---------- QUICK VIEW MODAL ---------- */
+  .qv-overlay{
+    position:fixed; inset:0; background:rgba(69,0,26,0.55); backdrop-filter:blur(3px);
+    z-index:100; display:none; align-items:center; justify-content:center; padding:20px;
+  }
+  .qv-overlay.open{display:flex;}
+  .qv-modal{
+    background:var(--ground-raised); border-radius:24px; max-width:760px; width:100%; max-height:88vh;
+    overflow-y:auto; box-shadow:var(--shadow); position:relative; display:grid; grid-template-columns:1fr 1fr;
+    border-top:3px solid var(--gold);
+  }
+  .qv-close{
+    position:absolute; top:14px; right:14px; width:34px; height:34px; border-radius:50%;
+    background:var(--ground); border:1px solid var(--line); display:grid; place-items:center;
+    cursor:pointer; font-size:1.1rem; line-height:1; color:var(--wine-ink); z-index:2;
+  }
+  .qv-media{aspect-ratio:4/5; overflow:hidden; background:var(--pink-soft);}
+  .qv-media img{width:100%; height:100%; object-fit:cover;}
+  .qv-body{padding:26px 26px 30px; display:flex; flex-direction:column;}
+  .qv-body h3{font-size:1.5rem; font-style:italic;}
+  .qv-body .card-price{margin-top:6px; padding-top:0;}
+  .qv-desc{margin-top:14px; font-size:0.94rem; opacity:0.9;}
+  .qv-included{margin:16px 0 0; padding:0; list-style:none; font-size:0.85rem; opacity:0.9; display:flex; flex-direction:column; gap:6px;}
+  .qv-size-note{margin-top:14px; font-size:0.82rem; opacity:0.9;}
+  .qv-size-note a{color:var(--wine); font-weight:700; text-decoration:underline;}
+  .qv-body .btn{margin-top:20px;}
+
+  [data-reveal]{opacity:0; transform:translateY(16px);}
+  [data-reveal].in-view{animation:reveal 0.7s ease forwards;}
+  @keyframes reveal{to{opacity:1; transform:none;}}
+
+  @media (max-width: 980px){
+    .steps-5{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width: 880px){
+    .sizing{grid-template-columns:1fr;}
+    .sizing-photo{order:-1; max-width:320px; margin-inline:auto;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-art{order:-1; max-width:340px;}
+    .why-grid{grid-template-columns:1fr;}
+    .why-strip{order:-1;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width: 640px){
+    .nav-links a.hide-mobile{display:none;}
+    .steps{grid-template-columns:1fr;}
+    .steps-5{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+    .cta-band{flex-direction:column; text-align:center; justify-content:center;}
+    .cta-band h2{max-width:none;}
+    .qv-modal{grid-template-columns:1fr;}
+    .qv-media{aspect-ratio:16/10;}
+  }
+</style>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <img src="images/logo.jpg" alt="Siren Glam logo">
+      <span class="brand-word">Siren Glam</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#shop" class="hide-mobile">Shop</a>
+      <a href="#how" class="hide-mobile">How it works</a>
+      <a href="#reviews" class="hide-mobile">Reviews</a>
+      <a href="#faq" class="hide-mobile">FAQ</a>
+      <a href="#contact" class="hide-mobile">Contact</a>
+      <a class="btn btn-wine btn-sm" href="https://wa.me/254797351366?text=Hi%20Siren%20Glam%21%20I%27d%20like%20to%20place%20an%20order%20for%20press-on%20nails.%20Please%20help%20me%20choose%20a%20set." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.2.2-.4.1-.2 0-.3 0-.4 0-.1-.5-1.3-.7-1.7-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 4 3.4.6.2 1 .4 1.3.5.6.2 1.1.1 1.5.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg>
+        Order on WhatsApp
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero wrap">
+    <div class="hero-grid">
+      <div data-reveal>
+        <h1>Siren Glam <em>Effortless beauty, every day.</em></h1>
+        <p class="hero-sub">Salon quality press-on nails designed for a polished look in minutes &mdash; without a salon appointment.</p>
+        <p class="hero-sub">From timeless reds and soft pinks to elegant nudes, find your set and make your everyday look feel glamorous.</p>
+        <div class="hero-cta">
+          <a class="btn btn-wine" href="#shop">Shop the sets</a>
+          <a class="btn btn-ghost" href="https://wa.me/254797351366?text=Hi%20Siren%20Glam%21%20I%27d%20like%20to%20place%20an%20order%20for%20press-on%20nails.%20Please%20help%20me%20choose%20a%20set." target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+        <div class="hero-meta">
+          <div><strong><span class="count" data-count-to="{{COUNT}}">{{COUNT}}</span></strong>signature sets</div>
+          <div><strong>Fitted</strong>to your nails</div>
+          <div><strong>Nairobi</strong>delivery</div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="ph ph-a"><img id="heroImgA" src="{{HERO_A_SRC}}" alt="{{HERO_A_ALT}}"></div>
+        <div class="ph ph-b"><img id="heroImgB" src="{{HERO_B_SRC}}" alt="{{HERO_B_ALT}}"></div>
+        <div class="seal"><img src="images/logo.jpg" alt=""></div>
+        <svg class="sparkle" style="top:2%; right:32%; width:26px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.2 7.8L22 10l-7.8 2.2L12 20l-2.2-7.8L2 10l7.8-2.2L12 0z"/></svg>
+        <svg class="sparkle" style="bottom:6%; right:2%; width:18px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.2 7.8L22 10l-7.8 2.2L12 20l-2.2-7.8L2 10l7.8-2.2L12 0z"/></svg>
+        <svg class="sparkle" style="top:44%; left:2%; width:14px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.2 7.8L22 10l-7.8 2.2L12 20l-2.2-7.8L2 10l7.8-2.2L12 0z"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>&#10022; Fitted to your hands</span>
+      <span>&#10022; Reusable 3&ndash;4 wears</span>
+      <span>&#10022; Nairobi delivery</span>
+      <span>&#10022; Damage-free removal</span>
+      <span>&#10022; Hand-finished, made to order</span>
+      <span>&#10022; Fitted to your hands</span>
+      <span>&#10022; Reusable 3&ndash;4 wears</span>
+      <span>&#10022; Nairobi delivery</span>
+      <span>&#10022; Damage-free removal</span>
+      <span>&#10022; Hand-finished, made to order</span>
+    </div>
+  </div>
+
+  <section class="section wrap" id="shop">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="eyebrow">The collection</p>
+        <h2>Shop the sets</h2>
+      </div>
+      <p>Every set is reusable and hand-finished, {{PRICE_PHRASE}}. Tap a design to see full details, or message us on WhatsApp &mdash; we'll have you sorted in minutes.</p>
+    </div>
+    <div class="grid-shop">
+<!--@PRODUCTS-->
+    </div>
+  </section>
+
+  <section class="section wrap" id="included">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="eyebrow">In every box</p>
+        <h2>What's included</h2>
+      </div>
+      <p>Every Siren Glam set arrives ready to apply &mdash; no extra shopping trip needed.</p>
+    </div>
+    <div class="included-grid" data-reveal>
+      <div class="included-item"><span class="ico">&#10003;</span><p><strong>10 press-on nails</strong> in your chosen design, sized to fit your hand.</p></div>
+      <div class="included-item"><span class="ico">&#10003;</span><p><strong>Nail glue &amp; adhesive tabs</strong> &mdash; use whichever you prefer.</p></div>
+      <div class="included-item"><span class="ico">&#10003;</span><p><strong>Mini nail file &amp; buffer</strong> for prepping and finishing.</p></div>
+      <div class="included-item"><span class="ico">&#10003;</span><p><strong>Alcohol prep pad</strong> to clean oils off the natural nail.</p></div>
+      <div class="included-item"><span class="ico">&#10003;</span><p><strong>Wooden cuticle stick</strong> for prep and clean application.</p></div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="sizing">
+    <div class="sizing" data-reveal>
+      <div class="sizing-copy">
+        <p class="eyebrow">Sizing</p>
+        <h2>Not sure about your size?</h2>
+        <p>Don't measure anything. Send us a clear photo of your nails on WhatsApp and we'll match you to the right set before you pay &mdash; it takes a couple of minutes.</p>
+        <a class="btn btn-wine" href="https://wa.me/254797351366?text=Hi%20Siren%20Glam%21%20I%27d%20like%20help%20finding%20my%20nail%20size.%20I%27m%20sending%20a%20clear%20photo%20of%20my%20nails%20now." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.2.2-.4.1-.2 0-.3 0-.4 0-.1-.5-1.3-.7-1.7-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 4 3.4.6.2 1 .4 1.3.5.6.2 1.1.1 1.5.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg>
+          Find my size on WhatsApp
+        </a>
+      </div>
+      <div class="sizing-photo">
+        <img src="images/barely-there.jpg" alt="Press-on nails worn on a hand, showing fit and length">
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="how">
+    <div class="how" data-reveal>
+      <div class="how-inner">
+        <p class="eyebrow">Ordering</p>
+        <h2 style="font-style:italic; font-size:clamp(1.6rem,3vw,2.2rem);">How it works</h2>
+        <div class="steps">
+          <div class="step">
+            <span class="n">01</span>
+            <h3>Pick your set</h3>
+            <p>Browse the collection above and message us the name of the set you love.</p>
+          </div>
+          <div class="step">
+            <span class="n">02</span>
+            <h3>We confirm sizing</h3>
+            <p>Send us a quick hand photo on WhatsApp so we match your nail sizes and lock in the price.</p>
+          </div>
+          <div class="step">
+            <span class="n">03</span>
+            <h3>Delivery or pickup</h3>
+            <p>We arrange delivery or pickup at a time that works for you &mdash; then you press, peel and glam.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="apply">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="eyebrow">Application</p>
+        <h2>How to apply your set</h2>
+      </div>
+      <p>No salon needed &mdash; a clean, confident press-on application in under ten minutes.</p>
+    </div>
+    <div class="steps steps-5" data-reveal>
+      <div class="step">
+        <span class="n">01</span>
+        <h3>Prep</h3>
+        <p>Push back cuticles, lightly buff the nail surface, then wipe with the prep pad to remove oils.</p>
+      </div>
+      <div class="step">
+        <span class="n">02</span>
+        <h3>Match sizes</h3>
+        <p>Lay your press-ons out and match each one to the right finger using your sizing guide.</p>
+      </div>
+      <div class="step">
+        <span class="n">03</span>
+        <h3>Apply</h3>
+        <p>Apply a thin layer of glue, or place an adhesive tab, on your natural nail.</p>
+      </div>
+      <div class="step">
+        <span class="n">04</span>
+        <h3>Press &amp; hold</h3>
+        <p>Press on starting at the cuticle, then down to the tip. Hold firmly for 15&ndash;20 seconds.</p>
+      </div>
+      <div class="step">
+        <span class="n">05</span>
+        <h3>Finish</h3>
+        <p>Gently file any overhang at the sides for a clean, salon-smooth finish.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="why-grid">
+      <div class="why-strip" data-reveal>
+        <img class="tall" src="images/milk-bath.jpg" alt="Milk Bath press-on nails, glossy milky white">
+        <img src="images/classic-french.jpg" alt="Classic French tip press-on nails">
+        <img src="images/midnight-noir.jpg" alt="Midnight Noir glossy black press-on nails">
+      </div>
+      <div class="why-copy" data-reveal>
+        <p class="eyebrow">Why press-ons</p>
+        <h2 style="font-size:clamp(1.7rem,3.2vw,2.3rem); font-style:italic;">Salon nails, on your schedule.</h2>
+        <p>No two-hour appointments, no fumes, no waiting for polish to dry. Every Siren Glam set is molded and finished by hand, then shipped ready to press on the moment you feel like glamming up.</p>
+        <ul class="why-list">
+          <li><span class="ico">&#10003;</span><span><strong>Reusable, up to 3&ndash;4 wears</strong> with proper care and storage.</span></li>
+          <li><span class="ico">&#10003;</span><span><strong>10 sizes per set</strong> so your fit is precise, not generic.</span></li>
+          <li><span class="ico">&#10003;</span><span><strong>Damage-free removal</strong> &mdash; no acetone soak required.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="delivery">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="eyebrow">Delivery</p>
+        <h2>Getting your order to you</h2>
+      </div>
+      <p>Here's what to expect once your size and payment are confirmed.</p>
+    </div>
+    <div class="delivery-grid" data-reveal>
+      <div class="delivery-item">
+        <h3>Where we deliver</h3>
+        <p>Nairobi and surrounding areas. Tell us your location on WhatsApp and we'll confirm you're within our delivery zone.</p>
+      </div>
+      <div class="delivery-item">
+        <h3>Delivery fee</h3>
+        <p>A small delivery fee applies depending on your area &mdash; we'll confirm the exact amount with you on WhatsApp before you pay.</p>
+      </div>
+      <div class="delivery-item">
+        <h3>Timeline</h3>
+        <p>Most orders are delivered within 24&ndash;48 hours of confirming your size and payment.</p>
+      </div>
+      <div class="delivery-item">
+        <h3>Prefer to collect?</h3>
+        <p>Let us know on WhatsApp and we'll arrange a convenient pickup point and time.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="reviews">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="eyebrow">Reviews</p>
+        <h2>Loved by our customers</h2>
+      </div>
+      <p>Got a Siren Glam set? Send your photo and a few words on WhatsApp &mdash; we'd love to feature you here.</p>
+    </div>
+    <!--@REVIEWS-->
+  </section>
+
+  <section class="section wrap" id="faq">
+    <div class="section-head faq-head" data-reveal>
+      <div style="margin:0 auto;">
+        <p class="eyebrow">Good to know</p>
+        <h2>FAQs &amp; care guide</h2>
+      </div>
+    </div>
+    <div class="faq-list" data-reveal>
+      <details class="faq-item">
+        <summary>How do I find my correct size?</summary>
+        <p>Send us a clear photo of your nails on WhatsApp and we'll match you to the right fit before you pay &mdash; see the sizing section above.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How long do press-ons last?</summary>
+        <p>Each set is reusable for 3&ndash;4 wears with proper care and storage.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do I remove them without damaging my nails?</summary>
+        <p>Soak your hands in warm soapy water for a few minutes, then gently wiggle each nail from the sides &mdash; no acetone soak required.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I reuse a set?</summary>
+        <p>Yes &mdash; keep the nails clean of old glue and store them in their original packaging between wears.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How long does application take?</summary>
+        <p>A few minutes per hand once your sizing is confirmed.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What if a nail lifts or pops off?</summary>
+        <p>Reapply with a small dab of glue. If it keeps happening, message us on WhatsApp and we'll help sort the fit.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section wrap" id="contact">
+    <div class="cta-band" data-reveal>
+      <h2>Ready to glam up?</h2>
+      <a class="btn btn-wine" href="https://wa.me/254797351366?text=Hi%20Siren%20Glam%21%20I%27d%20like%20to%20place%20an%20order%20for%20press-on%20nails.%20Please%20help%20me%20choose%20a%20set." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.2.2-.4.1-.2 0-.3 0-.4 0-.1-.5-1.3-.7-1.7-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 4 3.4.6.2 1 .4 1.3.5.6.2 1.1.1 1.5.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg>
+        Message +254 797 351 366
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand"><img src="images/logo.jpg" alt=""><span class="brand-word">Siren Glam</span></div>
+      <p style="max-width:32ch;">Effortless beauty, every day. Hand-finished press-on nails, ordered on WhatsApp and delivered to you.</p>
+    </div>
+    <div class="col">
+      <h4>Shop</h4>
+      <a href="#shop">All sets</a>
+      <a href="#included">What's included</a>
+      <a href="#apply">How to apply</a>
+    </div>
+    <div class="col">
+      <h4>Support</h4>
+      <a href="#delivery">Delivery info</a>
+      <a href="#faq">FAQ &amp; care guide</a>
+      <a href="#reviews">Reviews</a>
+    </div>
+    <div class="col">
+      <h4>Contact</h4>
+      <a href="https://wa.me/254797351366?text=Hi%20Siren%20Glam%21%20I%27d%20like%20to%20place%20an%20order%20for%20press-on%20nails.%20Please%20help%20me%20choose%20a%20set." target="_blank" rel="noopener">WhatsApp: +254 797 351 366</a>
+      <a href="#top">Back to top</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>&copy; <span id="year"></span> Siren Glam. All rights reserved.</span>
+    <span>Designs shown are hand-modeled samples &mdash; shades may vary slightly by screen.</span>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/254797351366?text=Hi%20Siren%20Glam%21%20I%27d%20like%20to%20place%20an%20order%20for%20press-on%20nails.%20Please%20help%20me%20choose%20a%20set." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.2.2-.4.1-.2 0-.3 0-.4 0-.1-.5-1.3-.7-1.7-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 4 3.4.6.2 1 .4 1.3.5.6.2 1.1.1 1.5.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg>
+</a>
+
+<div class="qv-overlay" id="qvOverlay">
+  <div class="qv-modal" id="qvModal">
+    <button type="button" class="qv-close" id="qvClose" aria-label="Close">&times;</button>
+    <div class="qv-media"><img id="qvImg" src="" alt=""></div>
+    <div class="qv-body">
+      <p class="eyebrow" id="qvTag">Siren Glam</p>
+      <h3 id="qvName"></h3>
+      <p class="spec" id="qvSpec"></p>
+      <p class="card-price" id="qvPrice"></p>
+      <p class="qv-desc" id="qvDesc"></p>
+      <ul class="qv-included">
+        <li>&#10003; 10 press-on nails, sized to fit your hand</li>
+        <li>&#10003; Nail glue &amp; adhesive tabs</li>
+        <li>&#10003; Mini nail file, buffer &amp; prep pad</li>
+      </ul>
+      <p class="qv-size-note">Not sure of your size? <a href="#sizing" id="qvSizingLink">Find it here</a>.</p>
+      <a class="btn btn-wine" id="qvOrder" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.2.2-.4.1-.2 0-.3 0-.4 0-.1-.5-1.3-.7-1.7-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 4 3.4.6.2 1 .4 1.3.5.6.2 1.1.1 1.5.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg>
+        Order on WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- Scroll-triggered reveal + count-up numbers ---------- */
+(function(){
+  var revealEls = document.querySelectorAll('[data-reveal]');
+
+  function animateCount(el){
+    var target = parseInt(el.dataset.countTo, 10);
+    if(isNaN(target)) return;
+    if(reduceMotion){ el.textContent = target; return; }
+    var duration = 900, startTime = null;
+    function step(ts){
+      if(!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(target * eased);
+      if(progress < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  }
+
+  // start counters at 0 so the count-up has somewhere to animate from
+  document.querySelectorAll('.count').forEach(function(c){ c.textContent = '0'; });
+
+  if('IntersectionObserver' in window && !reduceMotion){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          entry.target.querySelectorAll('.count').forEach(animateCount);
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){
+      el.classList.add('in-view');
+      el.querySelectorAll('.count').forEach(function(c){ c.textContent = c.dataset.countTo; });
+    });
+  }
+})();
+
+/* ---------- Hero photo carousel ---------- */
+(function(){
+  if(reduceMotion) return;
+  var images = {{CAROUSEL}};
+  function cycle(imgEl, startIndex, intervalMs){
+    if(!imgEl) return;
+    var i = startIndex;
+    setInterval(function(){
+      i = (i + 1) % images.length;
+      imgEl.style.opacity = '0';
+      setTimeout(function(){
+        imgEl.src = images[i].src;
+        imgEl.alt = images[i].alt;
+        imgEl.style.opacity = '1';
+      }, 450);
+    }, intervalMs);
+  }
+  cycle(document.getElementById('heroImgA'), 0, 30000);
+  cycle(document.getElementById('heroImgB'), {{HERO_B_INDEX}}, 30000);
+})();
+
+/* ---------- Scroll progress bar + condensed header ---------- */
+(function(){
+  var bar = document.getElementById('scrollProgress');
+  var header = document.querySelector('header.site');
+  var ticking = false;
+  function update(){
+    var scrollTop = window.scrollY || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    if(bar) bar.style.width = pct + '%';
+    if(header){
+      if(scrollTop > 12) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(update); ticking = true; }
+  }, {passive:true});
+  update();
+})();
+
+/* ---------- Desktop-only card tilt ---------- */
+(function(){
+  var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if(!canHover || reduceMotion) return;
+  document.querySelectorAll('.grid-shop .card').forEach(function(card){
+    var rect = null;
+    card.addEventListener('mouseenter', function(){ rect = card.getBoundingClientRect(); });
+    card.addEventListener('mousemove', function(e){
+      if(!rect) rect = card.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width;
+      var y = (e.clientY - rect.top) / rect.height;
+      var rotateY = (x - 0.5) * 10;
+      var rotateX = (0.5 - y) * 10;
+      card.style.transform = 'perspective(700px) rotateX(' + rotateX.toFixed(2) + 'deg) rotateY(' + rotateY.toFixed(2) + 'deg) translateY(-5px)';
+    });
+    card.addEventListener('mouseleave', function(){
+      card.style.transform = '';
+      rect = null;
+    });
+  });
+})();
+
+(function(){
+  var overlay = document.getElementById('qvOverlay');
+  if(!overlay) return;
+
+  function openQuickView(card){
+    var img = document.getElementById('qvImg');
+    img.src = card.dataset.img || '';
+    img.alt = card.dataset.alt || '';
+    document.getElementById('qvTag').textContent = card.dataset.tag || 'Siren Glam';
+    document.getElementById('qvName').textContent = card.dataset.name || '';
+    document.getElementById('qvSpec').textContent = (card.dataset.shade || '') + ' · ' + (card.dataset.shape || '');
+    document.getElementById('qvPrice').innerHTML = 'KSh ' + (card.dataset.price || '') + ' <span class="unit">per set</span>';
+    document.getElementById('qvDesc').textContent = card.dataset.desc || '';
+    document.getElementById('qvOrder').href = card.dataset.wa || '#';
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeQuickView(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.card').forEach(function(card){
+    var media = card.querySelector('.card-media');
+    var btn = card.querySelector('.view-details');
+    if(media){ media.addEventListener('click', function(){ openQuickView(card); }); }
+    if(btn){ btn.addEventListener('click', function(){ openQuickView(card); }); }
+  });
+  document.getElementById('qvClose').addEventListener('click', closeQuickView);
+  overlay.addEventListener('click', function(e){ if(e.target === overlay) closeQuickView(); });
+  document.getElementById('qvSizingLink').addEventListener('click', closeQuickView);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeQuickView(); });
+})();
+</script>
+
+</body>
+</html>

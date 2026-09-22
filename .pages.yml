@@ -1,0 +1,86 @@
+# Pages CMS settings: lets Siren Glam edit nail sets and reviews at app.pagescms.org
+media:
+  input: images
+  output: /images
+  categories: [image]
+  rename: safe
+
+content:
+  - name: products
+    label: Nail sets
+    type: file
+    path: content/products.json
+    format: json
+    list: true
+    fields:
+      - name: name
+        label: Set name
+        type: string
+        required: true
+      - name: price
+        label: Price (KSh)
+        type: number
+        required: true
+        options:
+          min: 0
+      - name: image
+        label: Photo
+        type: image
+        required: true
+        description: A clear photo of the nails. Square or portrait photos look best.
+      - name: shade
+        label: Colour / finish
+        type: string
+        description: e.g. Glossy cherry red
+      - name: shape
+        label: Shape
+        type: string
+        description: e.g. Almond, Square, Squoval, Stiletto, Coffin
+      - name: tag
+        label: Badge (optional)
+        type: string
+        description: Small label on the photo, e.g. Bestseller, New or Limited. Leave empty for none.
+      - name: description
+        label: Description
+        type: text
+        description: Shown when a customer taps "View full details".
+      - name: hide
+        label: Hide from website
+        type: boolean
+        description: Tick to hide this set (e.g. sold out) without deleting it.
+
+  - name: reviews
+    label: Customer reviews
+    type: file
+    path: content/reviews.json
+    format: json
+    list: true
+    fields:
+      - name: quote
+        label: What the customer said
+        type: text
+        required: true
+      - name: name
+        label: Customer first name
+        type: string
+      - name: area
+        label: Area
+        type: string
+        description: e.g. Kilimani
+      - name: set
+        label: Nail set they bought (optional)
+        type: string
+      - name: stars
+        label: Stars (1-5)
+        type: number
+        options:
+          min: 1
+          max: 5
+          step: 1
+      - name: photo
+        label: Customer photo (optional)
+        type: image
+        description: Only use a customer's photo with their permission.
+      - name: hide
+        label: Hide from website
+        type: boolean
