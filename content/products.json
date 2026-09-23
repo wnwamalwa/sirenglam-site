@@ -13,7 +13,7 @@
     "name": "Scarlet Kiss",
     "price": 699,
     "image": "/images/scarlet-kiss.jpg",
-    "shade": "Glossy cherry blue",
+    "shade": "Glossy cherry red",
     "shape": "Almond",
     "tag": "Bestseller",
     "description": "A glossy cherry-red glaze in an almond shape — bold, festive, and instantly polished for any occasion.",
@@ -22,7 +22,7 @@
   },
   {
     "name": "Milk Bath",
-    "price": 699,
+    "price": 1699,
     "image": "/images/milk-bath.jpg",
     "shade": "Milky white ombré",
     "shape": "Almond",
