@@ -2,89 +2,85 @@
   {
     "name": "Classic French",
     "price": 699,
+    "image": "/images/customer_photo.jpeg",
     "shade": "White tip on sheer pink",
     "shape": "Squoval",
-    "tag": "",
-    "image": "images/customer_photo.jpeg",
     "description": "A timeless white tip over sheer pink in a rounded squoval shape — the everyday classic, done cleanly.",
-    "hide": false,
-    "featured": true
+    "featured": true,
+    "hide": false
   },
   {
     "name": "Scarlet Kiss",
     "price": 699,
+    "image": "/images/scarlet-kiss.jpg",
     "shade": "Glossy cherry red",
-    "shape": "Almond",
+    "shape": "Almond Almond",
     "tag": "Bestseller",
-    "image": "images/scarlet-kiss.jpg",
     "description": "A glossy cherry-red glaze in an almond shape — bold, festive, and instantly polished for any occasion.",
-    "hide": false,
-    "featured": false
+    "featured": false,
+    "hide": false
   },
   {
     "name": "Milk Bath",
     "price": 699,
+    "image": "/images/milk-bath.jpg",
     "shade": "Milky white ombré",
     "shape": "Almond",
     "tag": "New",
-    "image": "images/milk-bath.jpg",
     "description": "A soft milky-white ombré fading into sheer at the base, finished in an easy-to-wear almond shape.",
-    "hide": false,
-    "featured": false
+    "featured": false,
+    "hide": false
   },
   {
     "name": "Midnight Noir",
     "price": 699,
+    "image": "/images/midnight-noir.jpg",
     "shade": "High-gloss jet black",
     "shape": "Stiletto",
-    "tag": "",
-    "image": "images/midnight-noir.jpg",
     "description": "A high-gloss jet-black finish in a sharp stiletto shape for a bold, statement look.",
-    "hide": false,
-    "featured": false
+    "featured": false,
+    "hide": false
   },
   {
     "name": "Merlot",
     "price": 699,
+    "image": "/images/merlot.jpg",
     "shade": "Deep wine glaze",
     "shape": "Almond",
-    "tag": "",
-    "image": "images/merlot.jpg",
     "description": "A deep wine-red glaze with a glossy finish in a classic almond shape — rich and versatile.",
-    "hide": false,
-    "featured": false
+    "featured": false,
+    "hide": false
   },
   {
     "name": "Barely There",
     "price": 699,
+    "image": "/images/barely-there.jpg",
     "shade": "Nude-to-pink ombré",
     "shape": "Almond",
-    "tag": "",
-    "image": "images/barely-there.jpg",
     "description": "A nude-to-pink ombré that mimics a natural, healthy nail — quiet elegance in an almond shape.",
-    "hide": false,
-    "featured": false
+    "featured": false,
+    "hide": false
   },
   {
     "name": "Rose Quartz",
     "price": 699,
+    "image": "/images/rose-quartz.jpg",
     "shade": "Rose-gold shimmer",
     "shape": "Almond",
     "tag": "Bestseller",
-    "image": "images/rose-quartz.jpg",
     "description": "A rose-gold shimmer finish in an almond shape that catches the light beautifully at any angle.",
-    "hide": false,
-    "featured": false
+    "featured": false,
+    "hide": false
   },
   {
     "name": "Vampire's Kiss",
     "price": 699,
+    "image": "/images/vampires-kiss.jpg",
     "shade": "Hand-painted bat art",
     "shape": "Stiletto",
     "tag": "Limited",
-    "image": "images/vampires-kiss.jpg",
     "description": "Hand-painted bat art on a black-and-purple glitter base in a dramatic stiletto shape — a limited seasonal design.",
-    "hide": false,
-    "featured": false
+    "featured": false,
+    "hide": false
   }
 ]
