@@ -92,9 +92,8 @@ const stars = (n) => {
   return '&#9733;'.repeat(k) + '&#9734;'.repeat(5 - k);
 };
 
-let reviewsHtml;
-if (reviews.length) {
-  reviewsHtml = `<div class="reviews-grid" data-reveal>\n` + reviews.map(r => {
+// No real reviews yet? Leave the whole reviews section (and its menu links) off the page.
+const reviewsHtml = `<div class="reviews-grid" data-reveal>\n` + reviews.map(r => {
     const who = [r.name, r.area].filter(Boolean).map(esc).join(', ');
     const photo = r.photo ? `
         <div class="review-photo"><img src="${esc(img(r.photo))}" loading="lazy" decoding="async" alt="${esc((r.name ? r.name + "'s" : 'Customer') + ' Siren Glam nails' + (r.set ? ' — ' + r.set : ''))}"></div>` : '';
@@ -104,16 +103,6 @@ if (reviews.length) {
         <cite>${who || 'Siren Glam customer'}${r.set ? ` &middot; ${esc(r.set)}` : ''}</cite>
       </div>`;
   }).join('\n') + `\n    </div>`;
-} else {
-  const sample = `      <div class="review-card">
-        <span class="sample-tag">Sample</span>
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <blockquote>Add a short quote from your customer here &mdash; what they loved, how it fit, how it felt.</blockquote>
-        <cite>Customer name, area</cite>
-      </div>`;
-  reviewsHtml = `<div class="reviews-grid" data-reveal>\n${sample}\n${sample}\n${sample}\n    </div>
-    <p class="reviews-cta">These are placeholder cards &mdash; swap them for real customer reviews as they come in.</p>`;
-}
 
 // ---------- assemble ----------
 let html = fs.readFileSync(path.join(ROOT, 'src/template.html'), 'utf8');
@@ -123,6 +112,12 @@ const put = (token, value) => {
 };
 put('<!--@PRODUCTS-->', productCards);
 put('<!--@REVIEWS-->', reviewsHtml);
+if (reviews.length) {
+  html = html.replace(/<!--@REVIEWS_(START|END)-->\n?/g, '').replace(/<!--\/?@RL-->/g, '');
+} else {
+  html = html.replace(/[ \t]*<!--@REVIEWS_START-->[\s\S]*?<!--@REVIEWS_END-->\n?/, '')
+             .replace(/[ \t]*<!--@RL-->[\s\S]*?<!--\/@RL-->\n?/g, '');
+}
 put('{{COUNT}}', String(products.length));
 put('{{PRICE_PHRASE}}', esc(pricePhrase));
 put('{{HERO_A_SRC}}', esc(heroA.src));
@@ -133,10 +128,10 @@ put('{{CAROUSEL_A}}', JSON.stringify(carousel.a).replace(/</g, '\\u003c'));
 put('{{CAROUSEL_B}}', JSON.stringify(carousel.b).replace(/</g, '\\u003c'));
 
 // ---------- write dist ----------
-fs.rmSync(OUT, { recursive: true, force: true });
+try { fs.rmSync(OUT, { recursive: true, force: true }); } catch (e) { /* ignore: files are overwritten below */ }
 fs.mkdirSync(OUT, { recursive: true });
 fs.writeFileSync(path.join(OUT, 'index.html'), html);
-fs.cpSync(path.join(ROOT, 'images'), path.join(OUT, 'images'), { recursive: true, filter: (s) => !s.endsWith('.DS_Store') });
+fs.cpSync(path.join(ROOT, 'images'), path.join(OUT, 'images'), { recursive: true, force: false, errorOnExist: false, filter: (s) => !s.endsWith('.DS_Store') });
 if (fs.existsSync(path.join(ROOT, 'preview.jpg'))) fs.copyFileSync(path.join(ROOT, 'preview.jpg'), path.join(OUT, 'preview.jpg'));
 
 console.log(`Built dist/ with ${products.length} nail sets and ${reviews.length} reviews.`);
