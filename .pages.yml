@@ -44,6 +44,10 @@ content:
         label: Description
         type: text
         description: Shown when a customer taps "View full details".
+      - name: featured
+        label: Feature this set
+        type: boolean
+        description: Tick to show this set first in the shop and often in the photos at the top of the page.
       - name: hide
         label: Hide from website
         type: boolean

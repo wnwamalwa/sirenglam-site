@@ -63,10 +63,25 @@ const maxP = prices.length ? Math.max(...prices) : 0;
 const pricePhrase = !prices.length ? 'made to order'
   : minP === maxP ? `now KSh ${minP} each` : `from KSh ${minP} per set`;
 
-const carousel = products.map(p => ({ src: img(p.image), alt: altFor(p) }));
-const heroA = carousel[0] || { src: 'images/logo.jpg', alt: 'Siren Glam' };
-const heroBIndex = carousel.length > 1 ? Math.min(5, carousel.length - 1) : 0;
-const heroB = carousel[heroBIndex] || heroA;
+// Featured sets go first on the shop grid and show up often in the top photos
+products.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+const slide = (p) => ({ src: img(p.image), alt: altFor(p) });
+const featured = products.filter(p => p.featured);
+const others = products.filter(p => !p.featured);
+let carouselA;
+if (featured.length && others.length) {
+  // featured photo every other slide: F, 1, F, 2, F, 3 ...
+  carouselA = [];
+  others.forEach((p, i) => { carouselA.push(slide(featured[i % featured.length])); carouselA.push(slide(p)); });
+} else {
+  carouselA = products.map(slide);
+}
+const carouselB = (others.length ? others : products).map(slide);
+// start the small photo halfway through the list so the two photos rarely line up
+for (let k = 0; k < Math.floor(carouselB.length / 2); k++) carouselB.push(carouselB.shift());
+const heroA = carouselA[0] || { src: 'images/logo.jpg', alt: 'Siren Glam' };
+const heroB = carouselB[0] || heroA;
+const carousel = { a: carouselA, b: carouselB };
 
 // ---------- reviews ----------
 const reviews = readJSON('content/reviews.json', [])
@@ -114,8 +129,8 @@ put('{{HERO_A_SRC}}', esc(heroA.src));
 put('{{HERO_A_ALT}}', esc(heroA.alt));
 put('{{HERO_B_SRC}}', esc(heroB.src));
 put('{{HERO_B_ALT}}', esc(heroB.alt));
-put('{{HERO_B_INDEX}}', String(heroBIndex));
-put('{{CAROUSEL}}', JSON.stringify(carousel).replace(/</g, '\\u003c'));
+put('{{CAROUSEL_A}}', JSON.stringify(carousel.a).replace(/</g, '\\u003c'));
+put('{{CAROUSEL_B}}', JSON.stringify(carousel.b).replace(/</g, '\\u003c'));
 
 // ---------- write dist ----------
 fs.rmSync(OUT, { recursive: true, force: true });

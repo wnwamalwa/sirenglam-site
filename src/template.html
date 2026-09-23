@@ -584,8 +584,8 @@
   <section class="section wrap">
     <div class="why-grid">
       <div class="why-strip" data-reveal>
-        <img class="tall" src="images/milk-bath.jpg" alt="Milk Bath press-on nails, glossy milky white">
-        <img src="images/classic-french.jpg" alt="Classic French tip press-on nails">
+        <img class="tall" src="images/customer_photo.jpeg" alt="Classic French press-on nails beside a Siren Glam box">
+        <img src="images/milk-bath.jpg" alt="Milk Bath press-on nails, glossy milky white">
         <img src="images/midnight-noir.jpg" alt="Midnight Noir glossy black press-on nails">
       </div>
       <div class="why-copy" data-reveal>
@@ -794,12 +794,16 @@ var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 /* ---------- Hero photo carousel ---------- */
 (function(){
   if(reduceMotion) return;
-  var images = {{CAROUSEL}};
-  function cycle(imgEl, startIndex, intervalMs){
+  var imagesA = {{CAROUSEL_A}};
+  var imagesB = {{CAROUSEL_B}};
+  function cycle(imgEl, images, startIndex, intervalMs){
     if(!imgEl) return;
     var i = startIndex;
+    var other = imgEl.id === 'heroImgA' ? document.getElementById('heroImgB') : document.getElementById('heroImgA');
+    var same = function(k){ return other && other.getAttribute('src') === images[k].src; };
     setInterval(function(){
       i = (i + 1) % images.length;
+      if(images.length > 1 && same(i)) i = (i + 1) % images.length; // never show the same photo twice at once
       imgEl.style.opacity = '0';
       setTimeout(function(){
         imgEl.src = images[i].src;
@@ -808,8 +812,8 @@ var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
       }, 450);
     }, intervalMs);
   }
-  cycle(document.getElementById('heroImgA'), 0, 30000);
-  cycle(document.getElementById('heroImgB'), {{HERO_B_INDEX}}, 30000);
+  cycle(document.getElementById('heroImgA'), imagesA, 0, 5000);
+  setTimeout(function(){ cycle(document.getElementById('heroImgB'), imagesB, 0, 5000); }, 2500);
 })();
 
 /* ---------- Scroll progress bar + condensed header ---------- */
