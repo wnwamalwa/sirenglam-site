@@ -36,7 +36,7 @@
   },
   {
     "name": "Midnight Noir",
-    "price": 699,
+    "price": 698,
     "image": "/images/midnight-noir.jpg",
     "shade": "High-gloss jet black",
     "shape": "Stiletto",
@@ -47,7 +47,7 @@
   },
   {
     "name": "Merlot",
-    "price": 699,
+    "price": 722,
     "image": "/images/merlot.jpg",
     "shade": "Deep wine glaze",
     "shape": "Almond",
@@ -58,7 +58,7 @@
   },
   {
     "name": "Barely There",
-    "price": 699,
+    "price": 698,
     "image": "/images/barely-there.jpg",
     "shade": "Nude-to-pink ombré",
     "shape": "Almond",
