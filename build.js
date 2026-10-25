@@ -113,8 +113,11 @@ const put = (token, value) => {
 put('<!--@PRODUCTS-->', productCards);
 put('<!--@REVIEWS-->', reviewsHtml);
 if (reviews.length) {
-  html = html.replace(/<!--@REVIEWS_(START|END)-->\n?/g, '').replace(/<!--\/?@RL-->/g, '');
+  html = html.replace(/<!--@REVIEWS_(START|END)-->\n?/g, '').replace(/<!--\/?@RL-->/g, '')
+             .replace(/[ \t]*<!--@NOREVIEWS_START-->[\s\S]*?<!--@NOREVIEWS_END-->\n?/, '');
 } else {
+  // No reviews yet: ask customers for one instead of showing an empty section.
+  html = html.replace(/[ \t]*<!--@NOREVIEWS_(START|END)-->\n?/g, '');
   html = html.replace(/[ \t]*<!--@REVIEWS_START-->[\s\S]*?<!--@REVIEWS_END-->\n?/, '')
              .replace(/[ \t]*<!--@RL-->[\s\S]*?<!--\/@RL-->\n?/g, '');
 }
