@@ -7,6 +7,7 @@
     "shape": "Squoval",
     "description": "A timeless white tip over sheer pink in a rounded squoval shape — the everyday classic, done cleanly.",
     "featured": true,
+    "sold_out": false,
     "hide": false
   },
   {
@@ -18,27 +19,30 @@
     "tag": "Bestseller",
     "description": "A glossy cherry-red glaze in an almond shape — bold, festive, and instantly polished for any occasion.",
     "featured": false,
+    "sold_out": false,
     "hide": false
   },
   {
     "name": "Milk Bath",
-    "price": 700,
+    "price": 699,
     "image": "/images/milk-bath.jpg",
     "shade": "Milky white ombré",
     "shape": "Almond",
     "tag": "New",
     "description": "A soft milky-white ombré fading into sheer at the base, finished in an easy-to-wear almond shape.",
     "featured": false,
+    "sold_out": false,
     "hide": false
   },
   {
     "name": "Midnight Noir",
-    "price": 700,
+    "price": 699,
     "image": "/images/midnight-noir.jpg",
     "shade": "High-gloss jet black",
     "shape": "Stiletto",
     "description": "A high-gloss jet-black finish in a sharp stiletto shape for a bold, statement look.",
     "featured": false,
+    "sold_out": false,
     "hide": false
   },
   {
@@ -49,6 +53,7 @@
     "shape": "Almond",
     "description": "A deep wine-red glaze with a glossy finish in a classic almond shape — rich and versatile.",
     "featured": false,
+    "sold_out": true,
     "hide": false
   },
   {
@@ -59,6 +64,7 @@
     "shape": "Almond",
     "description": "A nude-to-pink ombré that mimics a natural, healthy nail — quiet elegance in an almond shape.",
     "featured": false,
+    "sold_out": true,
     "hide": false
   },
   {
@@ -70,6 +76,7 @@
     "tag": "Bestseller",
     "description": "A rose-gold shimmer finish in an almond shape that catches the light beautifully at any angle.",
     "featured": false,
+    "sold_out": false,
     "hide": false
   },
   {
@@ -81,6 +88,7 @@
     "tag": "Limited",
     "description": "Hand-painted bat art on a black-and-purple glitter base in a dramatic stiletto shape — a limited seasonal design.",
     "featured": false,
+    "sold_out": false,
     "hide": false
   }
 ]
