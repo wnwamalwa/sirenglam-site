@@ -11,7 +11,7 @@
   },
   {
     "name": "Scarlet Kiss",
-    "price": 699,
+    "price": 700,
     "image": "/images/scarlet-kiss.jpg",
     "shade": "Glossy cherry red",
     "shape": "Almond",
@@ -22,7 +22,7 @@
   },
   {
     "name": "Milk Bath",
-    "price": 699,
+    "price": 700,
     "image": "/images/milk-bath.jpg",
     "shade": "Milky white ombré",
     "shape": "Almond",
@@ -33,7 +33,7 @@
   },
   {
     "name": "Midnight Noir",
-    "price": 699,
+    "price": 700,
     "image": "/images/midnight-noir.jpg",
     "shade": "High-gloss jet black",
     "shape": "Stiletto",
