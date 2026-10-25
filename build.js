@@ -152,6 +152,42 @@ const annHtml = site.announcement_on && annText
   ? `<div class="announce">${annSafeLink ? `<a href="${esc(annSafeLink)}"${annSafeLink.startsWith('#') ? '' : ' target="_blank" rel="noopener"'}>${esc(annText)} <span aria-hidden="true">&rarr;</span></a>` : esc(annText)}</div>\n`
   : '';
 put('<!--@ANNOUNCE-->\n', annHtml);
+// Delivery info (Pages CMS: Delivery info)
+const DEFAULT_DELIVERY = [
+  { title: 'Where we deliver', text: "Nairobi and surrounding areas. Tell us your location on WhatsApp and we'll confirm you're within our delivery zone." },
+  { title: 'Delivery fee', text: "A small delivery fee applies depending on your area — we'll confirm the exact amount with you on WhatsApp before you pay." },
+  { title: 'Timeline', text: 'Most orders are delivered within 24–48 hours of confirming your size and payment.' },
+  { title: 'Prefer to collect?', text: "Let us know on WhatsApp and we'll arrange a convenient pickup point and time." },
+];
+let delivery = readJSON('content/delivery.json', DEFAULT_DELIVERY).filter(d => d && (d.title || d.text) && !d.hide);
+if (!delivery.length) delivery = DEFAULT_DELIVERY;
+put('<!--@DELIVERY-->\n', delivery.map(d => `      <div class="delivery-item">
+        <h3>${esc(d.title)}</h3>
+        <p>${esc(d.text)}</p>
+      </div>
+`).join(''));
+
+// Social links (Pages CMS: Site photos & announcement). Accepts a full link or an @handle.
+const SOCIAL = {
+  instagram: { label: 'Instagram', base: 'https://www.instagram.com/', at: false,
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>' },
+  tiktok: { label: 'TikTok', base: 'https://www.tiktok.com/@', at: true,
+    icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.2v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.6a5.8 5.8 0 1 0 5 5.8V9.1a7.4 7.4 0 0 0 4.3 1.4V7.3a4.3 4.3 0 0 1-3.2-1.5z"/></svg>' },
+  facebook: { label: 'Facebook', base: 'https://www.facebook.com/', at: false,
+    icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H7v4h3v8h4v-8h3l1-4h-4V8z"/></svg>' },
+};
+const socialUrl = (key, v) => {
+  v = String(v || '').trim();
+  if (!v) return '';
+  if (/^https?:\/\//i.test(v)) return v;
+  const handle = v.replace(/^@/, '').replace(/[^A-Za-z0-9._-]/g, '');
+  return handle ? SOCIAL[key].base + handle : '';
+};
+put('<!--@SOCIAL-->', Object.keys(SOCIAL).map(k => {
+  const u = socialUrl(k, site[k]);
+  return u ? `      <a class="foot-social" href="${esc(u)}" target="_blank" rel="noopener">${SOCIAL[k].icon} ${SOCIAL[k].label}</a>\n` : '';
+}).join(''));
+
 put('{{LOGO_SRC}}', esc(sitePhoto('logo', 'images/logo.jpg')));
 put('{{SIZING_SRC}}', esc(sitePhoto('sizing_photo', 'images/barely-there.jpg')));
 put('{{GALLERY_LARGE_SRC}}', esc(sitePhoto('gallery_large', 'images/customer_photo.jpeg')));

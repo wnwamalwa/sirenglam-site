@@ -100,7 +100,7 @@ content:
         type: boolean
 
   - name: site
-    label: Site photos & announcement
+    label: Site photos, links & announcement
     type: file
     path: content/site.json
     format: json
@@ -117,6 +117,18 @@ content:
         label: Announcement link (optional)
         type: string
         description: Where tapping the bar goes, e.g. #shop for the sets, or a full https:// link. Leave empty for no link.
+      - name: instagram
+        label: Instagram (optional)
+        type: string
+        description: Your Instagram @handle or full link, e.g. @sirenglam.ke. Leave empty to hide.
+      - name: tiktok
+        label: TikTok (optional)
+        type: string
+        description: Your TikTok @handle or full link. Leave empty to hide.
+      - name: facebook
+        label: Facebook (optional)
+        type: string
+        description: Your Facebook page name or full link. Leave empty to hide.
       - name: logo
         label: Logo
         type: image
@@ -135,3 +147,24 @@ content:
       - name: gallery_bottom
         label: "Why press-ons: bottom small photo"
         type: image
+
+  - name: delivery
+    label: Delivery info
+    type: file
+    path: content/delivery.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: Heading
+        type: string
+        required: true
+        description: e.g. Delivery fee
+      - name: text
+        label: Details
+        type: text
+        required: true
+        description: e.g. KSh 200 within Nairobi CBD, KSh 300 elsewhere in Nairobi.
+      - name: hide
+        label: Hide from website
+        type: boolean
