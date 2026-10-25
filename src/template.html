@@ -32,6 +32,7 @@
 <link rel="apple-touch-icon" href="images/favicon.jpg">
 </head>
 <body>
+<!--@ANNOUNCE-->
 <style>
   :root{
     /* Brand palette: Soft Pink #E89EB8 background, Dark Burgundy #5C0120 text */
@@ -232,6 +233,16 @@
     letter-spacing:0.08em; text-transform:uppercase; opacity:0.9;
   }
   .count{font-variant-numeric:tabular-nums;}
+  .card-price .was{font-family:'Manrope',sans-serif; font-size:0.86rem; font-weight:600; opacity:0.6; text-decoration-thickness:1.5px;}
+  .card.is-sold-out .card-media img{filter:grayscale(0.75); opacity:0.7;}
+  .tag.tag-sold{background:var(--wine); color:#fff;}
+  .tag.tag-sold::before{background:#fff;}
+  .tag.tag-sale{background:var(--gold); color:#fff;}
+  .tag.tag-sale::before{background:#fff;}
+  /* ---------- ANNOUNCEMENT BAR ---------- */
+  .announce{background:var(--wine); color:#fff; text-align:center; font-size:0.85rem; font-weight:600; line-height:1.4; padding:9px 16px;}
+  .announce a{color:inherit; text-decoration:none;}
+  .announce a:hover{text-decoration:underline;}
   .btn-block{width:100%; margin-top:14px;}
   .view-details{
     background:none; border:none; padding:0; margin-top:10px; font-size:0.78rem; font-weight:700;
@@ -922,9 +933,14 @@ var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     document.getElementById('qvTag').textContent = card.dataset.tag || 'Siren Glam';
     document.getElementById('qvName').textContent = card.dataset.name || '';
     document.getElementById('qvSpec').textContent = (card.dataset.shade || '') + ' · ' + (card.dataset.shape || '');
-    document.getElementById('qvPrice').innerHTML = 'KSh ' + (card.dataset.price || '') + ' <span class="unit">per set</span>';
+    document.getElementById('qvPrice').innerHTML = card.dataset.priceHtml || ('KSh ' + (card.dataset.price || '') + ' <span class="unit">per set</span>');
     document.getElementById('qvDesc').textContent = card.dataset.desc || '';
-    document.getElementById('qvOrder').href = card.dataset.wa || '#';
+    var order = document.getElementById('qvOrder');
+    order.href = card.dataset.wa || '#';
+    var icon = order.querySelector('svg');
+    order.innerHTML = (icon ? icon.outerHTML : '') + ' ' + (card.dataset.btn || 'Order on WhatsApp');
+    order.classList.toggle('btn-wine', !card.classList.contains('is-sold-out'));
+    order.classList.toggle('btn-ghost', card.classList.contains('is-sold-out'));
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
   }

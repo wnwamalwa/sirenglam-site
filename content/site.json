@@ -1,4 +1,7 @@
 {
+  "announcement_on": false,
+  "announcement": "",
+  "announcement_link": "",
   "logo": "/images/logo.jpg",
   "sizing_photo": "/images/barely-there.jpg",
   "gallery_large": "/images/customer_photo.jpeg",

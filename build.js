@@ -38,52 +38,67 @@ const altFor = (p) => {
   return p.name + ' press-on nails worn on a hand' + (bits ? ' — ' + bits : '');
 };
 
+// Featured sets first, sold-out sets last; otherwise keep the order set in Pages CMS.
+const rank = (p) => (p.sold_out ? 2 : 0) - (p.featured && !p.sold_out ? 1 : 0);
+products.sort((a, b) => rank(a) - rank(b));
+
 const productCards = products.map((p, i) => {
   const price = Number(p.price) || 0;
-  const orderLink = wa(`Hi Siren Glam! I'd like to order ${p.name} – KSh ${price}. Please help me with sizing and delivery.`);
+  const was = Number(p.was_price) || 0;
+  const soldOut = !!p.sold_out;
+  const onSale = !soldOut && was > price && price > 0;
+  const tag = soldOut ? 'Sold out' : (p.tag || (onSale ? 'Sale' : ''));
+  const tagClass = soldOut ? ' tag-sold' : (onSale && !p.tag ? ' tag-sale' : '');
+  const orderLink = soldOut
+    ? wa(`Hi Siren Glam! Is ${p.name} back in stock? Please let me know when it's available.`)
+    : wa(`Hi Siren Glam! I'd like to order ${p.name} – KSh ${price}. Please help me with sizing and delivery.`);
+  const btnLabel = soldOut ? "Ask when it's back" : 'Order on WhatsApp';
+  const priceHtml = (onSale ? `<s class="was">KSh ${was}</s> ` : '') + `KSh ${price} <span class="unit">per set</span>`;
   const alt = altFor(p);
   const spec = [p.shade, p.shape].filter(Boolean).map(esc).join('<i>·</i>');
-  return `      <article class="card" data-reveal style="animation-delay:${(i * 0.05).toFixed(2)}s"
-        data-name="${esc(p.name)}" data-price="${price}" data-shade="${esc(p.shade)}" data-shape="${esc(p.shape)}" data-tag="${esc(p.tag)}"
+  return `      <article class="card${soldOut ? ' is-sold-out' : ''}" data-reveal style="animation-delay:${(i * 0.05).toFixed(2)}s"
+        data-name="${esc(p.name)}" data-price="${price}" data-shade="${esc(p.shade)}" data-shape="${esc(p.shape)}" data-tag="${esc(tag)}"
         data-img="${esc(img(p.image))}" data-alt="${esc(alt)}"
         data-desc="${esc(p.description)}"
+        data-price-html="${esc(priceHtml)}" data-btn="${esc(btnLabel)}"
         data-wa="${esc(orderLink)}">
         <div class="card-media">
           <img src="${esc(img(p.image))}" loading="lazy" decoding="async"
-               alt="${esc(alt)}">${p.tag ? `\n          <span class="tag">${esc(p.tag)}</span>` : ''}
+               alt="${esc(alt)}">${tag ? `\n          <span class="tag${tagClass}">${esc(tag)}</span>` : ''}
         </div>
         <div class="card-body">
           <h3>${esc(p.name)}</h3>
           <p class="spec">${spec}</p>
-          <p class="card-price">KSh ${price} <span class="unit">per set</span></p>
-          <a class="btn btn-wine btn-block" href="${esc(orderLink)}" target="_blank" rel="noopener">
-            ${WA_ICON} Order on WhatsApp
+          <p class="card-price">${priceHtml}</p>
+          <a class="btn ${soldOut ? 'btn-ghost' : 'btn-wine'} btn-block" href="${esc(orderLink)}" target="_blank" rel="noopener">
+            ${WA_ICON} ${btnLabel}
           </a>
           <button type="button" class="view-details">View full details &rarr;</button>
         </div>
       </article>`;
 }).join('\n');
 
-const prices = products.map(p => Number(p.price) || 0).filter(Boolean);
+// Prices and top photos only use sets that are in stock (all sets if everything is sold out).
+const inStock = products.filter(p => !p.sold_out);
+const shown = inStock.length ? inStock : products;
+const prices = shown.map(p => Number(p.price) || 0).filter(Boolean);
 const minP = prices.length ? Math.min(...prices) : 0;
 const maxP = prices.length ? Math.max(...prices) : 0;
 const pricePhrase = !prices.length ? 'made to order'
   : minP === maxP ? `now KSh ${minP} each` : `from KSh ${minP} per set`;
 
-// Featured sets go first on the shop grid and show up often in the top photos
-products.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
 const slide = (p) => ({ src: img(p.image), alt: altFor(p) });
-const featured = products.filter(p => p.featured);
-const others = products.filter(p => !p.featured);
+const featured = shown.filter(p => p.featured);
+const others = shown.filter(p => !p.featured);
 let carouselA;
 if (featured.length && others.length) {
   // featured photo every other slide: F, 1, F, 2, F, 3 ...
   carouselA = [];
   others.forEach((p, i) => { carouselA.push(slide(featured[i % featured.length])); carouselA.push(slide(p)); });
 } else {
-  carouselA = products.map(slide);
+  carouselA = shown.map(slide);
 }
-const carouselB = (others.length ? others : products).map(slide);
+const carouselB = (others.length ? others : shown).map(slide);
 // start the small photo halfway through the list so the two photos rarely line up
 for (let k = 0; k < Math.floor(carouselB.length / 2); k++) carouselB.push(carouselB.shift());
 const heroA = carouselA[0] || { src: 'images/logo.jpg', alt: 'Siren Glam' };
@@ -129,6 +144,14 @@ if (reviews.length) {
              .replace(/[ \t]*<!--@RL-->[\s\S]*?<!--\/@RL-->\n?/g, '');
 }
 put('{{COUNT}}', String(products.length));
+// Announcement bar (Pages CMS: Site photos & announcement)
+const annText = String(site.announcement || '').trim();
+const annLink = String(site.announcement_link || '').trim();
+const annSafeLink = /^(https?:\/\/|#)/i.test(annLink) ? annLink : '';
+const annHtml = site.announcement_on && annText
+  ? `<div class="announce">${annSafeLink ? `<a href="${esc(annSafeLink)}"${annSafeLink.startsWith('#') ? '' : ' target="_blank" rel="noopener"'}>${esc(annText)} <span aria-hidden="true">&rarr;</span></a>` : esc(annText)}</div>\n`
+  : '';
+put('<!--@ANNOUNCE-->\n', annHtml);
 put('{{LOGO_SRC}}', esc(sitePhoto('logo', 'images/logo.jpg')));
 put('{{SIZING_SRC}}', esc(sitePhoto('sizing_photo', 'images/barely-there.jpg')));
 put('{{GALLERY_LARGE_SRC}}', esc(sitePhoto('gallery_large', 'images/customer_photo.jpeg')));

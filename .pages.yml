@@ -48,10 +48,20 @@ content:
         label: Feature this set
         type: boolean
         description: Tick to show this set first in the shop and often in the photos at the top of the page.
+      - name: was_price
+        label: Was price (KSh, optional)
+        type: number
+        description: For a sale. Enter the old price here and the sale price in "Price". The card shows the old price crossed out. Leave empty when there is no sale.
+        options:
+          min: 0
+      - name: sold_out
+        label: Sold out
+        type: boolean
+        description: Tick when this set is out of stock. It stays on the website, greyed out with a "Sold out" badge, and the button asks you on WhatsApp when it's back.
       - name: hide
         label: Hide from website
         type: boolean
-        description: Tick to hide this set (e.g. sold out) without deleting it.
+        description: Tick to remove this set from the website completely, without deleting it.
 
   - name: reviews
     label: Customer reviews
@@ -90,11 +100,23 @@ content:
         type: boolean
 
   - name: site
-    label: Site photos
+    label: Site photos & announcement
     type: file
     path: content/site.json
     format: json
     fields:
+      - name: announcement_on
+        label: Show announcement bar
+        type: boolean
+        description: Tick to show a strip across the very top of the website.
+      - name: announcement
+        label: Announcement text
+        type: string
+        description: One short line, e.g. Free delivery in Nairobi this weekend
+      - name: announcement_link
+        label: Announcement link (optional)
+        type: string
+        description: Where tapping the bar goes, e.g. #shop for the sets, or a full https:// link. Leave empty for no link.
       - name: logo
         label: Logo
         type: image
