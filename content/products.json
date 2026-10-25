@@ -7,18 +7,20 @@
     "shape": "Squoval",
     "description": "A timeless white tip over sheer pink in a rounded squoval shape — the everyday classic, done cleanly.",
     "featured": true,
+    "was_price": 830,
     "sold_out": false,
     "hide": false
   },
   {
     "name": "Scarlet Kiss",
-    "price": 700,
+    "price": 699,
     "image": "/images/scarlet-kiss.jpg",
     "shade": "Glossy cherry red",
     "shape": "Almond",
     "tag": "Bestseller",
     "description": "A glossy cherry-red glaze in an almond shape — bold, festive, and instantly polished for any occasion.",
     "featured": false,
+    "was_price": 777,
     "sold_out": false,
     "hide": false
   },
@@ -36,7 +38,7 @@
   },
   {
     "name": "Midnight Noir",
-    "price": 698,
+    "price": 699,
     "image": "/images/midnight-noir.jpg",
     "shade": "High-gloss jet black",
     "shape": "Stiletto",
@@ -58,12 +60,13 @@
   },
   {
     "name": "Barely There",
-    "price": 698,
+    "price": 699,
     "image": "/images/barely-there.jpg",
     "shade": "Nude-to-pink ombré",
     "shape": "Almond",
     "description": "A nude-to-pink ombré that mimics a natural, healthy nail — quiet elegance in an almond shape.",
     "featured": false,
+    "was_price": 789,
     "sold_out": true,
     "hide": false
   },
