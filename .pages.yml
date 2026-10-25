@@ -168,3 +168,23 @@ content:
       - name: hide
         label: Hide from website
         type: boolean
+
+  - name: faq
+    label: FAQs
+    type: file
+    path: content/faq.json
+    format: json
+    list: true
+    fields:
+      - name: question
+        label: Question
+        type: string
+        required: true
+        description: e.g. Do you do custom designs?
+      - name: answer
+        label: Answer
+        type: text
+        required: true
+      - name: hide
+        label: Hide from website
+        type: boolean

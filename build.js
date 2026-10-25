@@ -167,6 +167,41 @@ put('<!--@DELIVERY-->\n', delivery.map(d => `      <div class="delivery-item">
       </div>
 `).join(''));
 
+// FAQs (Pages CMS: FAQs). Falls back to the original questions if the list is emptied.
+const DEFAULT_FAQ = [
+  {
+    "question": "How do I find my correct size?",
+    "answer": "Send us a clear photo of your nails on WhatsApp and we'll match you to the right fit before you pay — see the sizing section above."
+  },
+  {
+    "question": "How long do press-ons last?",
+    "answer": "Each set is reusable for 3–4 wears with proper care and storage."
+  },
+  {
+    "question": "How do I remove them without damaging my nails?",
+    "answer": "Soak your hands in warm soapy water for a few minutes, then gently wiggle each nail from the sides — no acetone soak required."
+  },
+  {
+    "question": "Can I reuse a set?",
+    "answer": "Yes — keep the nails clean of old glue and store them in their original packaging between wears."
+  },
+  {
+    "question": "How long does application take?",
+    "answer": "A few minutes per hand once your sizing is confirmed."
+  },
+  {
+    "question": "What if a nail lifts or pops off?",
+    "answer": "Reapply with a small dab of glue. If it keeps happening, message us on WhatsApp and we'll help sort the fit."
+  }
+];
+let faqs = readJSON('content/faq.json', DEFAULT_FAQ).filter(f => f && f.question && f.answer && !f.hide);
+if (!faqs.length) faqs = DEFAULT_FAQ;
+put('<!--@FAQ-->\n', faqs.map(f => `      <details class="faq-item">
+        <summary>${esc(f.question)}</summary>
+        <p>${esc(f.answer)}</p>
+      </details>
+`).join(''));
+
 // Social links (Pages CMS: Site photos & announcement). Accepts a full link or an @handle.
 const SOCIAL = {
   instagram: { label: 'Instagram', base: 'https://www.instagram.com/', at: false,
