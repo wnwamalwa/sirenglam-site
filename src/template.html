@@ -164,8 +164,11 @@
     0%,100%{transform:translateY(0) rotate(0deg);}
     50%{transform:translateY(-10px) rotate(12deg);}
   }
-  .ph img{transition:opacity 0.45s ease; animation:breathe 8s ease-in-out infinite;}
-  .ph-b img{animation-delay:1.2s;}
+  /* Each hero photo has two stacked layers; the next photo loads fully on the hidden layer, then cross-fades in. */
+  .ph-inner{position:absolute; inset:0; animation:breathe 8s ease-in-out infinite;}
+  .ph-b .ph-inner{animation-delay:1.2s;}
+  .ph-inner img{position:absolute; inset:0; opacity:0; transition:opacity 1.4s ease-in-out;}
+  .ph-inner img.is-on{opacity:1;}
   @keyframes breathe{
     0%,100%{transform:scale(1);}
     50%{transform:scale(1.06);}
@@ -446,8 +449,8 @@
         </div>
       </div>
       <div class="hero-art">
-        <div class="ph ph-a"><img id="heroImgA" src="{{HERO_A_SRC}}" alt="{{HERO_A_ALT}}"></div>
-        <div class="ph ph-b"><img id="heroImgB" src="{{HERO_B_SRC}}" alt="{{HERO_B_ALT}}"></div>
+        <div class="ph ph-a"><div class="ph-inner"><img id="heroImgA" class="is-on" src="{{HERO_A_SRC}}" alt="{{HERO_A_ALT}}"></div></div>
+        <div class="ph ph-b"><div class="ph-inner"><img id="heroImgB" class="is-on" src="{{HERO_B_SRC}}" alt="{{HERO_B_ALT}}"></div></div>
         <div class="seal"><img src="images/logo.jpg" alt=""></div>
         <svg class="sparkle" style="top:2%; right:32%; width:26px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.2 7.8L22 10l-7.8 2.2L12 20l-2.2-7.8L2 10l7.8-2.2L12 0z"/></svg>
         <svg class="sparkle" style="bottom:6%; right:2%; width:18px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.2 7.8L22 10l-7.8 2.2L12 20l-2.2-7.8L2 10l7.8-2.2L12 0z"/></svg>
@@ -813,24 +816,44 @@ var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   if(reduceMotion) return;
   var imagesA = {{CAROUSEL_A}};
   var imagesB = {{CAROUSEL_B}};
-  function cycle(imgEl, images, startIndex, intervalMs){
-    if(!imgEl) return;
-    var i = startIndex;
-    var other = imgEl.id === 'heroImgA' ? document.getElementById('heroImgB') : document.getElementById('heroImgA');
-    var same = function(k){ return other && other.getAttribute('src') === images[k].src; };
-    setInterval(function(){
-      i = (i + 1) % images.length;
-      if(images.length > 1 && same(i)) i = (i + 1) % images.length; // never show the same photo twice at once
-      imgEl.style.opacity = '0';
-      setTimeout(function(){
-        imgEl.src = images[i].src;
-        imgEl.alt = images[i].alt;
-        imgEl.style.opacity = '1';
-      }, 450);
-    }, intervalMs);
+  var showing = {};
+  // Load every photo once up front so a change never waits on the network.
+  imagesA.concat(imagesB).forEach(function(x){ var im = new Image(); im.src = x.src; });
+  function ready(src){
+    var im = new Image(); im.src = src;
+    return (im.decode ? im.decode() : Promise.resolve()).catch(function(){});
   }
-  cycle(document.getElementById('heroImgA'), imagesA, 0, 9000);
-  setTimeout(function(){ cycle(document.getElementById('heroImgB'), imagesB, 0, 9000); }, 4500);
+  function cycle(id, otherId, images, intervalMs, firstDelay){
+    var first = document.getElementById(id);
+    if(!first || images.length < 2) return;
+    var second = first.cloneNode(false);
+    second.removeAttribute('id'); second.classList.remove('is-on');
+    second.alt = ''; second.setAttribute('aria-hidden', 'true');
+    first.parentNode.appendChild(second);
+    var layers = [first, second], on = 0, i = 0;
+    showing[id] = images[0].src;
+    function step(){
+      if(document.hidden){ setTimeout(step, intervalMs); return; }   // pause while the tab is in the background
+      i = (i + 1) % images.length;
+      if(showing[otherId] === images[i].src) i = (i + 1) % images.length; // never show the same photo twice at once
+      var next = images[i], from = layers[on], to = layers[1 - on];
+      ready(next.src).then(function(){
+        to.src = next.src; to.alt = next.alt; to.removeAttribute('aria-hidden');
+        return ready(next.src);
+      }).then(function(){
+        requestAnimationFrame(function(){
+          to.classList.add('is-on');
+          from.classList.remove('is-on');
+          from.setAttribute('aria-hidden', 'true'); from.alt = '';
+          on = 1 - on; showing[id] = next.src;
+          setTimeout(step, intervalMs);
+        });
+      });
+    }
+    setTimeout(step, firstDelay);
+  }
+  cycle('heroImgA', 'heroImgB', imagesA, 9000, 9000);
+  cycle('heroImgB', 'heroImgA', imagesB, 9000, 13500);
 })();
 
 /* ---------- Scroll progress bar + condensed header ---------- */
