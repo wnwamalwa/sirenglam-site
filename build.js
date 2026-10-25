@@ -48,7 +48,7 @@ const productCards = products.map((p, i) => {
         <div class="card-body">
           <h3>${esc(p.name)}</h3>
           <p class="spec">${spec}</p>
-          <p class="card-price">KSh <span class="count" data-count-to="${price}">${price}</span> <span class="unit">per set</span></p>
+          <p class="card-price">KSh ${price} <span class="unit">per set</span></p>
           <a class="btn btn-wine btn-block" href="${esc(orderLink)}" target="_blank" rel="noopener">
             ${WA_ICON} Order on WhatsApp
           </a>
