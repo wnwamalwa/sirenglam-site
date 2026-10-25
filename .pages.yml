@@ -88,3 +88,28 @@ content:
       - name: hide
         label: Hide from website
         type: boolean
+
+  - name: site
+    label: Site photos
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - name: logo
+        label: Logo
+        type: image
+        description: Shown in the header, on the round badge at the top and in the footer. A square image works best.
+      - name: sizing_photo
+        label: Sizing section photo
+        type: image
+        description: The photo beside "Not sure about your size?".
+      - name: gallery_large
+        label: "Why press-ons: large photo"
+        type: image
+        description: The tall photo on the left of the "Salon nails, on your schedule" section.
+      - name: gallery_top
+        label: "Why press-ons: top small photo"
+        type: image
+      - name: gallery_bottom
+        label: "Why press-ons: bottom small photo"
+        type: image

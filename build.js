@@ -22,6 +22,13 @@ const wa = (text) => 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponen
 
 const WA_ICON = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.2.2-.4.1-.2 0-.3 0-.4 0-.1-.5-1.3-.7-1.7-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 4 3.4.6.2 1 .4 1.3.5.6.2 1.1.1 1.5.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg>';
 
+// ---------- site photos (editable in Pages CMS under "Site photos") ----------
+const site = (() => {
+  try { const d = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/site.json'), 'utf8')); return d && typeof d === 'object' && !Array.isArray(d) ? d : {}; }
+  catch (e) { console.warn('Could not read content/site.json: ' + e.message); return {}; }
+})();
+const sitePhoto = (key, fallback) => img(site[key]) || fallback;
+
 // ---------- products ----------
 const products = readJSON('content/products.json', [])
   .filter(p => p && p.name && p.image && !p.hide);
@@ -122,6 +129,11 @@ if (reviews.length) {
              .replace(/[ \t]*<!--@RL-->[\s\S]*?<!--\/@RL-->\n?/g, '');
 }
 put('{{COUNT}}', String(products.length));
+put('{{LOGO_SRC}}', esc(sitePhoto('logo', 'images/logo.jpg')));
+put('{{SIZING_SRC}}', esc(sitePhoto('sizing_photo', 'images/barely-there.jpg')));
+put('{{GALLERY_LARGE_SRC}}', esc(sitePhoto('gallery_large', 'images/customer_photo.jpeg')));
+put('{{GALLERY_TOP_SRC}}', esc(sitePhoto('gallery_top', 'images/milk-bath.jpg')));
+put('{{GALLERY_BOTTOM_SRC}}', esc(sitePhoto('gallery_bottom', 'images/midnight-noir.jpg')));
 put('{{PRICE_PHRASE}}', esc(pricePhrase));
 put('{{HERO_A_SRC}}', esc(heroA.src));
 put('{{HERO_A_ALT}}', esc(heroA.alt));
