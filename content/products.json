@@ -1,13 +1,13 @@
 [
   {
-    "name": "Classic French",
+    "name": "Classic French Squared",
     "price": 699,
     "image": "/images/customer_photo.jpeg",
     "shade": "White tip on sheer pink",
-    "shape": "Squoval",
-    "description": "A timeless white tip over sheer pink in a rounded squoval shape — the everyday classic, done cleanly.",
+    "shape": "Square",
+    "tag": "Limited",
+    "description": "Your everyday classic clean girl look. This set offers timeless elegance that is perfect for every occasion and blends well with all your outfits!",
     "featured": true,
-    "was_price": 830,
     "sold_out": false,
     "hide": false
   },
@@ -16,8 +16,8 @@
     "price": 699,
     "image": "/images/scarlet-kiss.jpg",
     "shade": "Glossy cherry red",
-    "shape": "Almond",
-    "tag": "Bestseller",
+    "shape": "Almond-Stiletto",
+    "tag": "New",
     "description": "A glossy cherry-red glaze in an almond shape — bold, festive, and instantly polished for any occasion.",
     "featured": false,
     "was_price": 777,
